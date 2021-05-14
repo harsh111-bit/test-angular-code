@@ -8,7 +8,7 @@ import {FavoriteBooksComponent} from './components/favorite-books/favorite-books
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: BookListComponent},
-  {path: 'home/' + ':id' + 'detail', component: BookDetailComponent},
+  {path: 'home/' + ':id/' + 'detail', component: BookDetailComponent},
   {path: 'favorites', component: FavoriteBooksComponent}
 ];
 

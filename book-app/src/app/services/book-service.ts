@@ -9,7 +9,7 @@ export class BookService {
   // tslint:disable-next-line:variable-name
   private _singleBookDetail = new BehaviorSubject<BookModel | null>(null);
   // tslint:disable-next-line:variable-name
-  private _favoriteBooks: BookModel[] = [];
+  private _favoriteBooks = new BehaviorSubject<BookModel[]>([]);
 
   get singleBookDetail() {
     return this._singleBookDetail.value;
@@ -32,8 +32,15 @@ export class BookService {
 
   pushFavoriteBooks(book: BookModel) {
     if (!!book) {
-      this.favoriteBooks.push(book);
+      this._favoriteBooks.value.push(book);
     }
+  }
+
+  removeFavoriteBooks(id: string) {
+    const arr = this._favoriteBooks.value.filter((book) => {
+      return book.id !== id;
+    })
+    this._favoriteBooks.next(arr);
   }
 
 

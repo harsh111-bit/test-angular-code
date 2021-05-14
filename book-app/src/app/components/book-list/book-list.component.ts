@@ -12,6 +12,8 @@ export class BookListComponent implements OnInit {
   books: BookModel[] = [];
   isLoading = false;
   isFavoriteBooksLength = false;
+  page = 1;
+  noOfBooks = 10;
 
   constructor(private bookService: BookService,
               private route: ActivatedRoute,
@@ -28,12 +30,14 @@ export class BookListComponent implements OnInit {
       () => this.isLoading = false
     );
 
-    this.isFavoriteBooksLength = !!this.bookService.favoriteBooks.length;
+    this.bookService.favoriteBooks.subscribe(books => {
+      this.isFavoriteBooksLength = !!books.length;
+    });
   }
 
   showDetails(id: string) {
     this.bookService.setSingleBookDetail(this.getSingleBookDetail(id));
-    this.router.navigate([`${+id}/detail`], {relativeTo: this.route});
+    this.router.navigate([`./${+id}/detail`], {relativeTo: this.route});
   }
 
   private getSingleBookDetail(id: string) {

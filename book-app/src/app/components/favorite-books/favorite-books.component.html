@@ -4,6 +4,7 @@
   </div>
 </div>
 
+<ng-container *ngIf="isBooks">
   <div class="container">
     <div class="table-responsive">
       <table class="table table-condensed table-hover">
@@ -21,9 +22,17 @@
           <td>{{book.book_author}}</td>
           <td>{{book.price}}</td>
           <td>{{book.createdAt}}</td>
+          <td (click)="removeBook(book.id)" style="cursor: pointer;">Remove</td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
+</ng-container>
+
+<ng-container *ngIf="!isBooks">
+  <div class="no-favorite-books">
+    <h2>No Favorite Books</h2>
+  </div>
+</ng-container>
 

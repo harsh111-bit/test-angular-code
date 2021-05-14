@@ -6,19 +6,28 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { FavoriteBooksComponent } from './components/favorite-books/favorite-books.component';
+import { BookService } from './services/book-service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
     BookDetailComponent,
-    FavoriteBooksComponent
+    FavoriteBooksComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule,
+    NgxPaginationModule,
   ],
-  providers: [],
+  providers: [
+    BookService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
