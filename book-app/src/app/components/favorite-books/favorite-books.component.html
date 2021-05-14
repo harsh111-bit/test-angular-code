@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1 style="color: #007EC5; padding: 13px; margin-top: 1em">Favorite Books</h1>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead style="background: #007EC5; color: white;">
+        <tr>
+          <th>Book Name</th>
+          <th>Author Name</th>
+          <th>Price</th>
+          <th>Created At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-row" *ngFor="let book of books;">
+          <td>{{book.name}}</td>
+          <td>{{book.book_author}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.createdAt}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

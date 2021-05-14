@@ -1,0 +1,28 @@
+
+table { box-sizing: border-box; border-collapse: collapse; border-spacing: 1em 0;}
+td, th { padding-left: 16px; min-width: 170px; text-align: left; }
+tr {  border-radius: 4px;
+  padding: 10px !important;
+  box-shadow: 8px 2px 2px #cac6c6;}
+tr:hover { cursor: pointer; border-radius: 4px;}
+
+td {
+  padding: 20px;
+}
+th:first-of-type{
+  border-radius: 10px 0 0 10px;
+}
+th:last-of-type{
+  border-radius: 0 10px 10px 0;
+}
+
+.books-loading {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    color: brown;
+  }
+}

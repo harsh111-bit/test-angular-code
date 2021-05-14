@@ -1,0 +1,54 @@
+<ng-container *ngIf="book">
+  <div class="container">
+    <div>
+      <h1 class="bookValue" style="padding-top: 1em">Book</h1>
+      <h6 class="bookValue" style="margin-bottom: 2em">Details</h6>
+    </div>
+    <div class="row" style="margin-bottom: 3em">
+      <div class="col-sm-2">
+        <img [src]="book.book_image"
+             alt=""
+             class="img-responsive rounded-circle"
+             style="max-height: 90px">
+
+        <button type="button" class="btn btn-primary" (click)="addToFavorites()">
+          Add to Favorites
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <label class="col-sm-2">Title</label>
+        <div class="bookValue boxed col-sm-4">{{book.name}}
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="col-sm-2">Author Name</label>
+        <div class="bookValue boxed col-sm-4">{{book.book_author}}
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="col-sm-2">Price</label>
+        <div class="bookValue boxed col-sm-4">{{book.price}}
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="col-sm-2">Created At</label>
+        <div class="bookValue boxed col-sm-4">{{book.createdAt}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!book">
+  <div class="book-not-found">
+    <h2>The details of this book could not be found!</h2>
+  </div>
+</ng-container>
+
+

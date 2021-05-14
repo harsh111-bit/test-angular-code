@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1 style="color: #007EC5; padding: 13px; margin-top: 1em">Books</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-primary" routerLink="/favorites">See Favorite Books</button>
+  </div>
+</div>
+<ng-container *ngIf="!isLoading">
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead style="background: #007EC5; color: white;">
+        <tr>
+          <th>Book Name</th>
+          <th>Author Name</th>
+          <th>Price</th>
+          <th>Created At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-row" *ngFor="let book of books;" (click)="showDetails(book.id)">
+          <td>{{book.name}}</td>
+          <td>{{book.book_author}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.createdAt}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+   <div class="books-loading">
+     <h2>Books Loading...</h2>
+   </div>
+</ng-container>
+
